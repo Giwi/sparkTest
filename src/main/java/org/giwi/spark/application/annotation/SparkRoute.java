@@ -34,7 +34,7 @@ public @interface SparkRoute {
             while (it.hasNext()) {
                 Class<?> rit = it.next();
                 try {
-                    if(rit.isAssignableFrom(Route.class)) {
+                    if(Route.class.isAssignableFrom(rit)) {
                         Route  r = (Route)  rit.getConstructor().newInstance();
                         r.init(rit.getAnnotation(SparkRoute.class).rootPath());
                     }
